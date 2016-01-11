@@ -9,7 +9,7 @@ import org.springframework.core.env.Environment;
  *
  */
 @Configuration
-@PropertySource("classpath:weixin.properties")
+@PropertySource("classpath:weixin-conf.properties")
 public class WeixinConstant {
 
 	@Autowired

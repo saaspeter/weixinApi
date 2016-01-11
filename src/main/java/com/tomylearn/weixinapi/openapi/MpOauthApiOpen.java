@@ -26,6 +26,7 @@ public class MpOauthApiOpen {
 
     /**
      * get access token
+     * see 官方文档中: 获取第三方平台access_token
      * @return the vaule should be cached
      */
     public CommonToken getComponentTokenOpen(String appid, String appsecret, String verifyTicket){
@@ -55,6 +56,7 @@ public class MpOauthApiOpen {
 
     /**
      * get preAuth code for page oauth call
+     * see 官方文档: 获取预授权码
      * @param appid
      * @param componentAccessToken: value of method getComponentTokenOpen, but Application should pass the parameter from the cache
      * @return
@@ -84,6 +86,7 @@ public class MpOauthApiOpen {
 
     /**
      * get mp user's authorization
+     * see 官方文档: 使用授权码换取公众号的授权信息
      * @param componentToken
      * @param appid
      * @param authorizationCode: mp user authorization code returned in page
@@ -119,7 +122,7 @@ public class MpOauthApiOpen {
 
     /**
      * get access token from refresh token
-     * see weixin api: /cgi-bin/component/api_authorizer_token
+     * see weixin api: /cgi-bin/component/api_authorizer_token 获取（刷新）授权公众号的令牌
      * @param componentAccessToken
      * @param componentAppid
      * @param authorizerAppid
@@ -155,6 +158,7 @@ public class MpOauthApiOpen {
 
     /**
      * get weixin MP account information
+     * see 获取授权方的账户信息
      * @param componentAccessToken
      * @param componentAppid
      * @param authorizerAppid
