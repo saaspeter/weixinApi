@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>逛 -- 微信公共平台授权页面</title>
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <style type="text/css">
+        #titleTextID h1 {
+            color:white;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+    <nav class="navbar navbar-default navbar-transparent" role="navigation" style="background-color: #339999">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1">
+                    <span class="fa fa-bars fa-lg"></span>
+                </button>
+                <div class="logo">
+                    <img src="http://www.guang-duang.com/assets/images/homepage/website_logo.png">
+                </div>
+            </div>
+
+            <div class="col-md-offset-4" id="titleTextID">
+                <h1><strong>微信公共平台授权页面</strong></h1>
+            </div>
+        </div>
+    </nav>
+    </div>
+
+    <div class="container" style="margin-top:5em;">
+        <div th:if="${userAccessToken==null}" class="col-md-12 text-center">
+            <h3>请点击以下按钮前往微信公众号登陆页面，登陆并请授权相关权限给逛科技平台</h3>
+            <h3>(本页面有效期为10分钟)</h3>
+            <div style="margin-top: 2em">
+                <a th:href="@{'https://mp.weixin.qq.com/cgi-bin/componentloginpage?component_appid='+${appId}+'&pre_auth_code='+${preAuthCode}+'&redirect_uri=http%3A%2F%2Fwww.guang-duang.com%2Fweixin%2Foauth%2Fcallback'}">
+                   <img src="https://open.weixin.qq.com/zh_CN/htmledition/res/assets/res-design-download/icon_button3_1.png"/>
+                </a>
+            </div>
+        </div>
+        <div th:if="${userAccessToken!=null}" class="col-md-12 text-center">
+            <h3>授权成功，<button class="btn btn-success" onclick="window.opener.location.reload(false);window.close();">查看授权信息</button></h3>
+        </div>
+    </div>
+
+</body>
+</html>
